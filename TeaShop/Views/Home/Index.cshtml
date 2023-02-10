@@ -1,8 +1,206 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<head>
+    <link rel="stylesheet" href="~/css/fontawesome.css">
+</head>
+<body>
+    <!-- Baner początkowy -->
+    <div id="baner-carousel" class="carousel slide" data-bs-ride="carousel" style="width:100%">
+        <ol class="carousel-indicators">
+            <li data-bs-target="baner-carousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="baner-carousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="baner-carousel" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="@Url.Content("~/images/green.jpg")" alt="zielona herbata">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h2 class="h2 text-success"><b> Zielona herbata</b> - na zdrowie!</h2>
+                                <p>
+                                    Zielona herbata zalety zawdzięcza przede wszystkim związkom polifenolowym. 
+                                    To właśnie one działają antyoksydacyjnie, “wymiatając” wolne rodniki z organizmu. 
+                                    Te z kolei są odpowiedzialne za proces starzenia się oraz rozwój niektórych z chorób.
+                                
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="@Url.Content("~/images/czarna.jpeg")" alt="czarna herbata">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h2 class="h2"><b>Czarna herbata</b> - na lepsze trawienie</h2>
+                                <p>
+                                    Napar herbaciany korzystnie wpływa na trawienie: zaleca się wypijanie go po ciężkostrawnych, tłustych posiłkach. 
+                                    Czarna herbata zapobiega chorobom układu pokarmowego oraz ma korzystny wpływ na skład mikroflory 
+                                    jelitowej, hamując rozwój bakterii patogennych.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="@Url.Content("~/images/owocowe.jpg")" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h2 class="h2"><b>Owocowa herbata</b> -odkryj jej zalety! </h2>
+                                <p>
+                                    Tak jak same świeże owoce to i suszone posiadają witaminy oraz inne składniki pozytywne dla organizmu.
+                                    Napar z malin jest skuteczny na przeziębienia.Owoce dzikiej róży zawierają bardzo dużą ilość witaminy C, 
+                                    zatem herbatki owocowe zawierające ten owoc mają zbawienny wpływ na układ odpornościowy i skutecznie 
+                                    wspomagają walkę z przeziębieniem lub grypą.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#baner-carousel" role="button" data-bs-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#baner-carousel" role="button" data-bs-slide="next">
+            <i class="fas fa-chevron-right"></i>
+        </a>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    
+    </div>
+    <!-- Baner początkowy -->
+    <!-- Kategorie-->
+    <section class="container py-5">
+        <div class="row text-center pt-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">Wybierz coś dla siebie!</h1>
+                <p>
+                    Zielona, czarna czy owocowa? Wybór należy do Ciebie! Sprawdź wszsystkie smaki!
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="@Url.Content("~/images/green2.jpg")" class="rounded-circle img-fluid border"></a>
+                <h5 class="text-center mt-3 mb-3">Zielona</h5>
+                <p class="text-center"><a class="btn btn-success">Zobacz</a></p>
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="@Url.Content("~/images/black.jpg")" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Czarna</h2>
+                <p class="text-center"><a class="btn btn-success">Zobacz</a></p>
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="@Url.Content("~/images/owocowa2.jpg")" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Owocowa</h2>
+                <p class="text-center"><a class="btn btn-success">Zobacz</a></p>
+            </div>
+        </div>
+    </section>
+    <!-- Kategorie -->
+
+    <!-- Top produkty -->
+    <section class="bg-light">
+        <div class="container py-5">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">Polecane produkty</h1>
+                 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="#">
+                            <img src="@Url.Content("~/images/green2.jpg")" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                                <li class="text-muted text-right">Cena </li>
+                            </ul>
+                            <a href="#" class="h2 text-decoration-none text-dark">Sencha</a>
+                            <p class="card-text">
+                                Herbatę zieloną Sencha otrzymuje się poddając suszeniu liście niezwłocznie po zerwaniu ich z krzewu, 
+                                tak aby nie dopuścić do rozpoczęcia procesu utleniania. Dzięki temu utrzymuje ona więcej składników o leczniczych właściwościach, oraz posiada wiele walorów smakowych (ziołowy aromat oraz wyraźnie delikatniejszy smak niż pozostałe rodzaje herbat).
+                            </p>
+                            <p class="text-muted">Opinie</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="#">
+                            <img src="@Url.Content("~/images/black.jpg")" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                                <li class="text-muted text-right">Cena</li>
+                            </ul>
+                            <a href="#" class="h2 text-decoration-none text-dark">Earl Grey</a>
+                            <p class="card-text">
+                                Jedna z najbardziej znanych i cenionych kompozycji na świecie. Jej wspaniały smak i aromat uzyskuje się poprzez dodanie olejku z bergamotki. 
+                                Herbata Earl Grey swój niepowtarzalny smak i aromat zawdzięcza olejkowi z bergamotki.
+                            </p>
+                            <p class="text-muted">Opinie (48)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="#">
+                            <img src="@Url.Content("~/images/owocowa2.jpg")" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                </li>
+                                <li class="text-muted text-right">Cena</li>
+                            </ul>
+                            <a href="#" class="h2 text-decoration-none text-dark">Owocowe love</a>
+                            <p class="card-text">
+                                Kompozycja owocowa, w której skład wchodzi: jabłko, skórka dzikiej róży, skórka pomarańczy, hibiskus, malina i bławatek.
+                            </p>
+                            <p class="text-muted">Opinie (74)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Top produkty -->
+
+<script src="~/js/slide.js"></script>
+</body>

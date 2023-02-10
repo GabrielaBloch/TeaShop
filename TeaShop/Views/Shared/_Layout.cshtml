@@ -16,8 +16,33 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <a class="navbar-brand" href="" style="text-decoration:none;color:white">
+                    <img src="@Url.Content("~/images/logo.jpg")" style="width:50px; height:50px;border-radius:20px;"/>
+                </a>
+                <div class="navbar navbar-default navbar-fixed-top  text-white">
+                    <div class="container">  
+                        Zielone herbaty
+                    </div>
+                </div>
+                 <div class="navbar navbar-default navbar-fixed-top  text-white">
+                    <div class="container">
+                        Czarne herbaty
+                    </div>
+                </div>
+                <div class="navbar navbar-default navbar-fixed-top  text-white">
+                    <div class="container">
+                        Owocowe herbaty
+                    </div>
+                </div>
+                <div class="navbar navbar-default navbar-fixed-top  text-white">
+                    <div class="container">
+                        Dodatki do herbat
+                    </div>
+                </div>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-xxl-row-reverse">
                     <partial name="_PartialLogin" />
+                    <img src="@Url.Content("~/images/carticon.png")" style="width:6%;height:6%; margin:0 40px" />
+                 
                 </div>
             </div>
         </nav>
