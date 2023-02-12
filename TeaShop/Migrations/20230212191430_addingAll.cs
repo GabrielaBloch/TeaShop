@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TeaShop.Migrations
 {
-    public partial class AddIdentityTable : Migration
+    public partial class addingAll : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,6 +28,8 @@ namespace TeaShop.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -46,6 +48,19 @@ namespace TeaShop.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -154,6 +169,101 @@ namespace TeaShop.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<float>(type: "real", nullable: false),
+                    Weight = table.Column<float>(type: "real", nullable: false),
+                    Amount = table.Column<int>(type: "int", nullable: false),
+                    PhotoId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Products_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductsPhoto",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    ImageName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImagePath = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductsPhoto", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductsPhoto_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "Id", "CategoryName" },
+                values: new object[,]
+                {
+                    { 1, "Zielone" },
+                    { 2, "Czarne" },
+                    { 3, "Owocowe" },
+                    { 4, "Dodatki" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "Amount", "CategoryId", "Description", "Name", "PhotoId", "Price", "Weight" },
+                values: new object[,]
+                {
+                    { 1, 30, 1, "Bancha należy do grona herbat zielonych. Pozyskiwana jest z krzewu Camellia sinensis czyli z tego samego, z którego pozyskuje się herbatę Sencha. Sencha powstaje z pierwszego zbioru delikatnych, młodych listków herbaty. Bancha zaś to tzw. herbata późnego zbioru (zbierana późnym latem, jesienią, a nawet i niekiedy zimą.", "Bancha", 1, 20.99f, 250f },
+                    { 2, 50, 1, "Mianem Gunpowder (czyli proch strzelniczy) jest nazywana herbata o listkach zwiniętych do postaci herbacianych kulek małej średnicy, twardych w dotyku, o szaro-zielonym odcieniu. China Gunpowder pochodzi z chińskiej prowincji Anhwei gdzie jest produkowany podczas wyjątkowo krótkich zbiorów. ", "China GunPowder", 2, 35.99f, 200f },
+                    { 3, 100, 1, "Herbaty pochodzenia japońskiego charakteryzują się wybitną jakością wynikającą z obowiązujących bardzo wysokich standardów prowadzenia upraw i obróbki zebranego materiału.Japońska Sencha to klasyka zielonych herbat pochodzących z Kraju Kwitnącej Wiśni. Właściwie przygotowany napar charakteryzuje wykwintny smak i aromat.", "Sencha", 3, 30.59f, 150f },
+                    { 4, 50, 2, "Herbata pochodzi z górskiej prowincji Yunnan położonej w Chinach przy granicy z Wietnamem, Birmą i Laosem, a rosnące w tym regionie krzewy herbaciane charakteryzują się szerokimi i mięsistymi liśćmi o połyskującej powierzchni. Golden Yunnan swoją nazwę zawdzięcza dużej ilości złotych \"tipsów\", dzięki którym uzyskiwany susz ma niespotykany złocisto-bursztynowy odcień.", "Golden Yunnan", 4, 20.59f, 100f },
+                    { 5, 150, 2, "Popularna kompozycja dwóch czarnych herbat gatunków Assam i Cejlon. Dedykowana jest do spożycia w godzinach porannych. Charakteryzuje się mocnym i wyrazistym smakiem i brązowo-bursztynową barwą. ", "English Breakfast", 5, 10.49f, 200f },
+                    { 6, 200, 2, "Ceylon High Grown OP (Orange Pekoe) to propozycja herbaty czarnej o długich, spiczastych liściach, sporadycznie zawierającej złotawe tipsy Napar charakteryzuje się delikatnym aromatem, orzeźwiającym smakiem oraz czerwono- złotą barwą.", "Ceylon High Grown OP", 6, 25.99f, 250f },
+                    { 7, 220, 3, "Wspaniale fantazyjne połączenie owoców: jabłka, papai, owocu czarnego bzu, maliny oraz truskawki w towarzystwie hibiskusa, delikatnych płatków słonecznika i aromatycznego bławatka. Z każdym kolejnym łykiem przenosi nas w cudowny klimat egzotyki. Wyśmienita do podawania jako słodki dodatek podczas spotkań z rodziną czy przyjaciółmi.", "Bora Bora", 7, 25.99f, 200f },
+                    { 8, 300, 3, "Kompozycja owocowa, w której skład wchodzi: jabłko, skórka dzikiej róży, skórka pomarańczy, hibiskus, malina i bławatek.", "Owocowe Love", 8, 15.99f, 150f },
+                    { 9, 150, 3, "Wybierz się na spacer uliczkami miasta miłości. W jego zakamarkach znajdziesz kwiaty intensywnego hibiskusa i delikatnej róży, skosztujesz owoców truskawki, żurawiny i wiśni, a także natkniesz się na romantyczne cukrowe serduszka, które osłodzą przechadzkę.", "Paris Paris", 9, 35.99f, 150f },
+                    { 10, 50, 4, "Polecamy jako słodki dodatek do herbaty. Miód z lawnendą", "Miodowe Lawendowe", 10, 15.99f, 50f },
+                    { 11, 50, 4, "Polecamy jako słodki dodatek do herbaty. Miód z cynamonem", "Miodowy Cynamon", 11, 15.99f, 50f },
+                    { 12, 50, 4, "Polecamy jako słodki dodatek do herbaty. Miód z migdałami", "Miód z migdałami", 12, 17.99f, 50f }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ProductsPhoto",
+                columns: new[] { "Id", "ImageName", "ImagePath", "ProductId" },
+                values: new object[,]
+                {
+                    { 1, "1", "/images/1.jpg", 1 },
+                    { 2, "2", "/images/2.jpg", 2 },
+                    { 3, "3", "/images/3.jpg", 3 },
+                    { 4, "4", "/images/4.jpg", 4 },
+                    { 5, "5", "/images/5.png", 5 },
+                    { 6, "6", "/images/6.jpg", 6 },
+                    { 7, "7", "/images/7.jpg", 7 },
+                    { 8, "8", "/images/8.jpg", 8 },
+                    { 9, "9", "/images/9.jpg", 9 },
+                    { 10, "10", "/images/10.jpg", 10 },
+                    { 11, "11", "/images/11.jpg", 11 },
+                    { 12, "12", "/images/12.jpg", 12 }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -192,6 +302,17 @@ namespace TeaShop.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_CategoryId",
+                table: "Products",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductsPhoto_ProductId",
+                table: "ProductsPhoto",
+                column: "ProductId",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -212,10 +333,19 @@ namespace TeaShop.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "ProductsPhoto");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
         }
     }
 }

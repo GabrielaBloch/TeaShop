@@ -1,0 +1,44 @@
+﻿@model TeaShop.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+<section class="bg-light">
+        <div class="container pb-5">
+            <div class="row">
+            <h2>@Html.DisplayFor(model => model.Name)</h2>
+                <div class="col-lg-5 mt-5">
+                    <div class="card mb-3">
+                    <img src=" @Url.Content("~/images/"+Model.PhotoId+".jpg")" width=100% height=100%  alt="" id="product-detail"/>
+                    </div>
+                   
+                </div>
+                <div class="col-lg-7 mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                        <h2 class="h2">@Html.DisplayFor(model => model.Name)</h2>
+                        <p class="h3 py-2">@Html.DisplayFor(model => model.Price)</p>
+                            
+                            <h6>Opis:</h6>
+                            <p>@Html.DisplayFor(model => model.Description)</p>
+                            <h6>Waga:</h6>
+                            <p>@Html.DisplayFor(model => model.Weight)</p>
+
+                            <h6>Stan:</h6>
+                            <p>@Html.DisplayFor(model => model.Amount)</p>
+
+                            <form action="" method="GET">
+                                <div class="row pb-3">
+                                    <div class="col d-grid">
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Add To Cart</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+

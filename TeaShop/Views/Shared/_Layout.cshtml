@@ -16,27 +16,27 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="" style="text-decoration:none;color:white">
+                <a asp-controller="Home" asp-action="Index" style="text-decoration:none;color:white">
                     <img src="@Url.Content("~/images/logo.jpg")" style="width:50px; height:50px;border-radius:20px;"/>
                 </a>
                 <div class="navbar navbar-default navbar-fixed-top  text-white">
                     <div class="container">  
-                        Zielone herbaty
+                        <a asp-controller="Category" asp-action="Zielone">Zielone herbaty</a>
                     </div>
                 </div>
                  <div class="navbar navbar-default navbar-fixed-top  text-white">
                     <div class="container">
-                        Czarne herbaty
+                        <a asp-controller="Category" asp-action="Czarne"> Czarne herbaty</a>
                     </div>
                 </div>
                 <div class="navbar navbar-default navbar-fixed-top  text-white">
                     <div class="container">
-                        Owocowe herbaty
+                        <a asp-controller="Category" asp-action="Owocowe">Owocowe herbaty</a>
                     </div>
                 </div>
                 <div class="navbar navbar-default navbar-fixed-top  text-white">
                     <div class="container">
-                        Dodatki do herbat
+                        <a asp-controller="Category" asp-action="Dodatki dp herbat">Dodatki do herbat</a>
                     </div>
                 </div>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-xxl-row-reverse">
