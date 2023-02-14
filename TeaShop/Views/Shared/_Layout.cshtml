@@ -21,24 +21,10 @@
                 </a>
                 <div class="navbar navbar-default navbar-fixed-top  text-white">
                     <div class="container">  
-                        <a asp-controller="Category" asp-action="Zielone">Zielone herbaty</a>
+                        @await Component.InvokeAsync("Category")
                     </div>
                 </div>
-                 <div class="navbar navbar-default navbar-fixed-top  text-white">
-                    <div class="container">
-                        <a asp-controller="Category" asp-action="Czarne"> Czarne herbaty</a>
-                    </div>
-                </div>
-                <div class="navbar navbar-default navbar-fixed-top  text-white">
-                    <div class="container">
-                        <a asp-controller="Category" asp-action="Owocowe">Owocowe herbaty</a>
-                    </div>
-                </div>
-                <div class="navbar navbar-default navbar-fixed-top  text-white">
-                    <div class="container">
-                        <a asp-controller="Category" asp-action="Dodatki dp herbat">Dodatki do herbat</a>
-                    </div>
-                </div>
+                 
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-xxl-row-reverse">
                     <partial name="_PartialLogin" />
                     <img src="@Url.Content("~/images/carticon.png")" style="width:6%;height:6%; margin:0 40px" />

@@ -16,13 +16,17 @@
                 <div class="col-lg-7 mt-5">
                     <div class="card">
                         <div class="card-body">
-                        <h2 class="h2">@Html.DisplayFor(model => model.Name)</h2>
+                        <h3>Cena:</h3>
                         <p class="h3 py-2">@Html.DisplayFor(model => model.Price)</p>
                             
                             <h6>Opis:</h6>
                             <p>@Html.DisplayFor(model => model.Description)</p>
+
                             <h6>Waga:</h6>
                             <p>@Html.DisplayFor(model => model.Weight)</p>
+
+                            <h6>Kategoria:</h6>
+                            <p> @Html.DisplayFor(model => model.Category.CategoryName)</p>
 
                             <h6>Stan:</h6>
                             <p>@Html.DisplayFor(model => model.Amount)</p>
@@ -30,7 +34,7 @@
                             <form action="" method="GET">
                                 <div class="row pb-3">
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Add To Cart</button>
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Dodaj do ksozyka</button>
                                     </div>
                                 </div>
                             </form>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<TeaShop.Models.Product>
+<h1></h1>
+
+
+<div class="col-lg-9">
+    <div class="row">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6 pb-4">
+            <div class="d-flex">
+                <select class="form-control">
+                    <option>Featured</option>
+                    <option>A to Z</option>
+                    <option>Item</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var item in Model){
+            <div class="col-md-4">
+                <div class="card mb-4 product-wap rounded-0">
+                    <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid" src="@Url.Content("~/images/"+item.PhotoId+".jpg")" width="50" height="50">
+                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><img src="@Url.Content("~/images/carticon.png")" width="50" height="50"/></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="h3 text-decoration-none">@Html.DisplayFor(modelItem => item.Name)</p>        
+                        <p class="text-center mb-0">@Html.DisplayFor(modelItem => item.Price)</p>
+                    </div>
+                </div>
+            </div>
+        }    
+         
+    </div>
+            
+</div>
+
