@@ -8,6 +8,12 @@ namespace TeaShop.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductPhoto> ProductsPhoto { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        public DbSet<CartDetails> CartDetails { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetails> OrderDetails { get; set; }
+
+        public DbSet<OrderStatus> orderStatuses { get; set; }
         public int Counter { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -241,6 +247,11 @@ namespace TeaShop.Models
                      ProductId= 12,
                  }
 
+                );
+            modelBuilder.Entity<OrderStatus>().HasData(
+                new OrderStatus() { Id = 1, StatusId = 1, StatusName="Złożone" },
+                new OrderStatus() { Id = 2, StatusId = 2, StatusName="W trakcie" },
+                new OrderStatus() { Id = 3, StatusId = 3, StatusName="Anulowane" }
                 );
             modelBuilder.Entity<Product>()
                 .HasOne<Category>(u => u.Category)

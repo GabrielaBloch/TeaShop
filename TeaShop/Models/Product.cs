@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TeaShop.Models
 {
+    [Table("Products")]
     public class Product
     {
        
@@ -32,7 +33,10 @@ namespace TeaShop.Models
         [Display(Name = "Zdjęcie")]
         public int PhotoId { get; set; }
 
-    
+        [NotMapped]
+        public string CategoryName { get; set; }
+
+
 
     }
 }

@@ -27,8 +27,10 @@
                  
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-xxl-row-reverse">
                     <partial name="_PartialLogin" />
-                    <img src="@Url.Content("~/images/carticon.png")" style="width:6%;height:6%; margin:0 40px" />
-                 
+                    @*<span id="cartCount">
+                        <img src="@Url.Content("~/images/carticon.png")" style="width:6%;height:6%; margin:0 40px" />
+                    </span>*@
+                    
                 </div>
             </div>
         </nav>
@@ -47,6 +49,30 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        loadCartCount()
+        async function loadCartCount() 
+        {
+            var usernameEl = document.getElementById("username");
+                if (usernameEl != 0) {
+                try {
+                    var response = await fetch(`/Cart/GetTotalItemInCart`);
+                       console.log(response);
+                        if (response.status == 200) {
+                            var result = await response.json();
+                            var cartCountEl = document.getElementById("cartCount");
+                            cartCountEl.innerHTML = result;
+
+                        }
+                }
+                catch{
+
+                }
+                
+                }
+
+        }
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

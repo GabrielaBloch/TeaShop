@@ -89,5 +89,6 @@ namespace TeaShop.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login", "Account");
         }
+        
     }
 }

@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<TeaShop.Models.Product>
-<h1></h1>
 
 
 <div class="col-lg-9">
@@ -24,7 +23,7 @@
                             <img class="card-img rounded-0 img-fluid" src="@Url.Content("~/images/"+item.PhotoId+".jpg")" width="50" height="50">
                         <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                             <ul class="list-unstyled">
-                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><img src="@Url.Content("~/images/carticon.png")" width="50" height="50"/></a></li>
+                                <li><a class="btn btn-success text-white mt-2" onclick="add(@Html.DisplayFor(modelItem => item.Id))"><img src="@Url.Content("~/images/carticon.png")" width="50" height="50" /></a></li>
                             </ul>
                         </div>
                     </div>
@@ -40,3 +39,28 @@
             
 </div>
 
+@section Scripts{
+    <script>
+        async function add(productId){
+
+            try {
+                var response = await fetch(`/Cart/AddItem?productId=${productId}`);
+                if (response.status == 200) 
+                {
+                    var result = await response.json();
+                    var cartCountEl = document.getElementById("cartCount");
+                    cartCountEl.innerHTML = result;
+
+                }
+            }
+            catch
+            {
+                alert("Zaloguj się");
+            }
+
+       
+                
+        }
+    </script>
+
+}
