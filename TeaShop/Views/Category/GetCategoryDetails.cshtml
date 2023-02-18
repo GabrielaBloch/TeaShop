@@ -28,9 +28,13 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <p class="h3 text-decoration-none">@Html.DisplayFor(modelItem => item.Name)</p>        
-                        <p class="text-center mb-0">@Html.DisplayFor(modelItem => item.Price)</p>
+                        <p class="text-center mb-0">@Html.DisplayFor(modelItem => item.Name)</p>
+                        <p class="text-center mb-0">Cena: @Html.DisplayFor(modelItem => item.Price) zł</p>
                     </div>
+
+                </div>
+                <div class="text-center">
+                    <a class="btn btn-success text-white mt-2 " href="/Product/Details/@Html.DisplayFor(modelItem => item.Id)" style="width:50; height:50">Szczegóły produktu</a>
                 </div>
             </div>
         }    

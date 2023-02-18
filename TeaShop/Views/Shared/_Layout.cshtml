@@ -26,10 +26,7 @@
                 </div>
                  
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-xxl-row-reverse">
-                    <partial name="_PartialLogin" />
-                    @*<span id="cartCount">
-                        <img src="@Url.Content("~/images/carticon.png")" style="width:6%;height:6%; margin:0 40px" />
-                    </span>*@
+                    <partial name="_PartialLogin" /> 
                     
                 </div>
             </div>
@@ -41,10 +38,8 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - TeaShop - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+    <footer class="footer">
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -55,19 +50,19 @@
         {
             var usernameEl = document.getElementById("username");
                 if (usernameEl != 0) {
-                try {
-                    var response = await fetch(`/Cart/GetTotalItemInCart`);
-                       console.log(response);
-                        if (response.status == 200) {
-                            var result = await response.json();
-                            var cartCountEl = document.getElementById("cartCount");
-                            cartCountEl.innerHTML = result;
+                    try {
+                        var response = await fetch(`/Cart/GetTotalItemInCart`);
+                           console.log(response);
+                            if (response.status == 200) {
+                                var result = await response.json();
+                                var cartCountEl = document.getElementById("cartCount");
+                                cartCountEl.innerHTML = result;
 
-                        }
-                }
-                catch{
+                            }
+                    }
+                    catch{
 
-                }
+                    }
                 
                 }
 

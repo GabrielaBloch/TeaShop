@@ -5,16 +5,17 @@
 {
     <form method="post" id="logoutForm" asp-action="Logoff" asp-controller="Account">
         <ul class="nav navbar-nav">
+            <li><a class="text-white nav-link" href="/UserOrder/UserOrder" style="text-decoration:none; color:white;">Moje zamówienia</a></li>
             <li id="username" class="text-white nav-link">Witaj, @User.Identity.Name! </li>
             <li><a class="text-white nav-link" href="javascript:document.getElementById('logoutForm').submit()">Wyloguj się</a></li>
         </ul>
     </form>
     <div class="navbar-collapse collapse d-sm-inline-flex">
+        
         <a class="nav-link" href="/Cart/GetUserCart">
-            <span id="cartCount" class="badge text-bg-info">0</span>
             <img src="@Url.Content("~/images/carticon.png")" style="height:50px;width:50px;"></img>
+            <span id="cartCount" class="badge text-bg-info" style="border:solid 1px black">0</span>
         </a>
-        <a href="/UserOrder/UserOrder">Moje zamówienia</a>
     </div>
 
 }

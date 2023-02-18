@@ -1,11 +1,12 @@
-﻿@{
+﻿@model TeaShop.Models.Product
+@{
     ViewData["Title"] = "Home Page";
 }
 <head>
     <link rel="stylesheet" href="~/css/fontawesome.css">
 </head>
 <body>
-    <!-- Baner początkowy -->
+    <!-- Karuzela -->
     <div id="baner-carousel" class="carousel slide" data-bs-ride="carousel" style="width:100%">
         <ol class="carousel-indicators">
             <li data-bs-target="baner-carousel" data-bs-slide-to="0" class="active"></li>
@@ -82,7 +83,7 @@
 
     
     </div>
-    <!-- Baner początkowy -->
+    <!-- Karuzela -->
     <!-- Kategorie-->
     <section class="container py-5">
         <div class="row text-center pt-3">
@@ -94,20 +95,20 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="@Url.Content("~/images/green2.jpg")" class="rounded-circle img-fluid border"></a>
+            <div class="col-12 col-md-4 p-5 mt-3 text-center">
+                <img src="@Url.Content("~/images/green2.jpg")" class="rounded-circle img-fluid border" />
                 <h5 class="text-center mt-3 mb-3">Zielona</h5>
-                <p class="text-center"><a class="btn btn-success">Zobacz</a></p>
+                <a class="btn btn-success" href="/Category/GetCategoryDetails/1"><p class="text-center">Zobacz</p></a>
             </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="@Url.Content("~/images/black.jpg")" class="rounded-circle img-fluid border"></a>
+            <div class="col-12 col-md-4 p-5 mt-3 text-center">
+                <img src="@Url.Content("~/images/black.jpg")" class="rounded-circle img-fluid border" />
                 <h2 class="h5 text-center mt-3 mb-3">Czarna</h2>
-                <p class="text-center"><a class="btn btn-success">Zobacz</a></p>
+                <a class="btn btn-success" href="/Category/GetCategoryDetails/2"><p class="text-center">Zobacz</p></a>
             </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="@Url.Content("~/images/owocowa2.jpg")" class="rounded-circle img-fluid border"></a>
+            <div class="col-12 col-md-4 p-5 mt-3 text-center">
+                <img src="@Url.Content("~/images/owocowa2.jpg")" class="rounded-circle img-fluid border" />
                 <h2 class="h5 text-center mt-3 mb-3">Owocowa</h2>
-                <p class="text-center"><a class="btn btn-success">Zobacz</a></p>
+                <a class="btn btn-success" href="/Category/GetCategoryDetails/3"><p class="text-center">Zobacz</p></a>
             </div>
         </div>
     </section>
@@ -125,75 +126,51 @@
             <div class="row">
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="#">
+                        <a href="/Product/Details/3">
                             <img src="@Url.Content("~/images/green2.jpg")" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
-                            <ul class="list-unstyled d-flex justify-content-between">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                                <li class="text-muted text-right">Cena </li>
+                            <ul class="list-unstyled d-flex flex-row-reverse">
+                                <li class="text-right">30,59 zł</li>
                             </ul>
-                            <a href="#" class="h2 text-decoration-none text-dark">Sencha</a>
+                            <span class="h2 text-dark">Sencha</span>
                             <p class="card-text">
                                 Herbatę zieloną Sencha otrzymuje się poddając suszeniu liście niezwłocznie po zerwaniu ich z krzewu, 
                                 tak aby nie dopuścić do rozpoczęcia procesu utleniania. Dzięki temu utrzymuje ona więcej składników o leczniczych właściwościach, oraz posiada wiele walorów smakowych (ziołowy aromat oraz wyraźnie delikatniejszy smak niż pozostałe rodzaje herbat).
                             </p>
-                            <p class="text-muted">Opinie</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="#">
-                            <img src="@Url.Content("~/images/black.jpg")" class="card-img-top" alt="...">
+                        <a href="/Product/Details/4">
+                            <img src="@Url.Content("~/images/4.jpg")" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
-                            <ul class="list-unstyled d-flex justify-content-between">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                                <li class="text-muted text-right">Cena</li>
+                            <ul class="list-unstyled d-flex flex-row-reverse">
+                                <li class="text-right">20,59 zł</li>
                             </ul>
-                            <a href="#" class="h2 text-decoration-none text-dark">Earl Grey</a>
+                            <span class="h2 text-dark">Golden Yunnan</span>
                             <p class="card-text">
                                 Jedna z najbardziej znanych i cenionych kompozycji na świecie. Jej wspaniały smak i aromat uzyskuje się poprzez dodanie olejku z bergamotki. 
                                 Herbata Earl Grey swój niepowtarzalny smak i aromat zawdzięcza olejkowi z bergamotki.
                             </p>
-                            <p class="text-muted">Opinie (48)</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="#">
-                            <img src="@Url.Content("~/images/owocowa2.jpg")" class="card-img-top" alt="...">
+                        <a href="/Product/Details/7">
+                            <img src="@Url.Content("~/images/7.jpg")" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
-                            <ul class="list-unstyled d-flex justify-content-between">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                </li>
-                                <li class="text-muted text-right">Cena</li>
+                            <ul class="list-unstyled d-flex flex-row-reverse">
+                                <li class="text-right">25,59 zł</li>
                             </ul>
-                            <a href="#" class="h2 text-decoration-none text-dark">Owocowe love</a>
+                            <span class="h2 text-dark">Bora Bora</span>
                             <p class="card-text">
                                 Kompozycja owocowa, w której skład wchodzi: jabłko, skórka dzikiej róży, skórka pomarańczy, hibiskus, malina i bławatek.
                             </p>
-                            <p class="text-muted">Opinie (74)</p>
                         </div>
                     </div>
                 </div>

@@ -16,25 +16,24 @@
                 <div class="col-lg-7 mt-5">
                     <div class="card">
                         <div class="card-body">
-                        <h3>Cena:</h3>
-                        <p class="h3 py-2">@Html.DisplayFor(model => model.Price)</p>
+                            <h4>Cena:</h4>
+                             <p class="h3 py-2">@Html.DisplayFor(model => model.Price) zł</p>
                             
-                            <h6>Opis:</h6>
                             <p>@Html.DisplayFor(model => model.Description)</p>
 
-                            <h6>Waga:</h6>
-                            <p>@Html.DisplayFor(model => model.Weight)</p>
+                            <h5>Waga:</h5>
+                            <p>@Html.DisplayFor(model => model.Weight) gr</p>
 
-                            <h6>Kategoria:</h6>
+                            <h5>Kategoria:</h5>
                             <p> @Html.DisplayFor(model => model.Category.CategoryName)</p>
 
-                            <h6>Stan:</h6>
-                            <p>@Html.DisplayFor(model => model.Amount)</p>
+                            <h5>Stan:</h5>
+                            <p>@Html.DisplayFor(model => model.Amount) sztuk</p>
 
                             <form action="" method="GET">
                                 <div class="row pb-3">
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Dodaj do ksozyka</button>
+                                    <a class="btn btn-success text-white mt-2" onclick="add(@Html.DisplayFor(model => model.Id))" style="width:50; height:50" />Dodaj do koszyka</a>
                                     </div>
                                 </div>
                             </form>
@@ -46,3 +45,27 @@
         </div>
     </section>
 
+@section Scripts{
+    <script>
+        async function add(productId) {
+
+            try {
+                var response = await fetch(`/Cart/AddItem?productId=${productId}`);
+                if (response.status == 200) {
+                    var result = await response.json();
+                    var cartCountEl = document.getElementById("cartCount");
+                    cartCountEl.innerHTML = result;
+
+                }
+            }
+            catch
+            {
+                alert("Zaloguj się");
+            }
+
+
+
+        }
+    </script>
+
+}

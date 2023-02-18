@@ -35,16 +35,15 @@
                                         Suma:
                                     </td>
                                     <td>
-                                        @(order.OrderDetail.Select(item => item.Product.Price * item.Quantity).Sum())
+                                        @(order.OrderDetail.Select(item => item.Product.Price * item.Quantity).Sum()) zł
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Product</th>
-                                    <th>Image</th>
-                                    <th>Category</th>
-                                    <th>Unit Price(INR)</th>
-                                    <th>Total Price</th>
-                                    <th>Action</th>
+                                    <th>Produkt</th>
+                                    <th></th>
+                                    <th>Kategoria</th>
+                                    <th>Cena jednostkowa x ilość</th>
+                                    <th>Suma</th>
                                 </tr>
                                 @foreach (var item in order.OrderDetail)
                                 {
@@ -62,8 +61,8 @@
                                             }
                                         </td>
                                         <td>@item.Product.Category.CategoryName</td>
-                                        <td>@item.Product.Price X @item.Quantity</td>
-                                        <td>@(item.Product.Price * item.Quantity)</td>
+                                        <td class="text-center">@item.Product.Price zł X @item.Quantity </td>
+                                        <td>@(item.Product.Price * item.Quantity) zł</td>
 
                                     </tr>
                                     
