@@ -68,9 +68,7 @@ namespace TeaShop.Models
                 {
                     find.Name = product.Name;
                     find.Price = product.Price;
-                    find.ProductPhoto = product.ProductPhoto;
                     find.Description = product.Description;
-                    find.Amount = product.Amount;
                     find.Weight = product.Weight;
                     _context.SaveChanges();
                     return true;

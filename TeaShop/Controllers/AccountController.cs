@@ -57,7 +57,7 @@ namespace TeaShop.Controllers
         [ValidateAntiForgeryToken]
         public async Task <IActionResult> Register(RegisterVM model)
         {
-            if (ModelState.IsValid)
+            if (model is not null)
             {
                 var user = new AppUser
                 {
@@ -71,7 +71,14 @@ namespace TeaShop.Controllers
                 var result =await _userManager.CreateAsync(user,model.Password);
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, model.RoleName);
+                    if (model.Email == "admin@gmail.com")
+                    {
+                        await _userManager.AddToRoleAsync(user, Helper.Helper.Admin);
+                    }
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, Helper.Helper.Client);
+                    }
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }

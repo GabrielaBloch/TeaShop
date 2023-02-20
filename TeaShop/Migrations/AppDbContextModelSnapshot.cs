@@ -426,6 +426,9 @@ namespace TeaShop.Migrations
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
+                    b.Property<string>("ProductImage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<float>("Weight")
                         .HasColumnType("real");
 

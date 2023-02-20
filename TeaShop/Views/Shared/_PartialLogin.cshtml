@@ -5,6 +5,10 @@
 {
     <form method="post" id="logoutForm" asp-action="Logoff" asp-controller="Account">
         <ul class="nav navbar-nav">
+            @if (User.IsInRole("Admin"))
+            {
+                <li><a class="text-white nav-link" href="/Product/Index" style="text-decoration:none; color:white;">Produkty</a></li>
+            }
             <li><a class="text-white nav-link" href="/UserOrder/UserOrder" style="text-decoration:none; color:white;">Moje zamówienia</a></li>
             <li id="username" class="text-white nav-link">Witaj, @User.Identity.Name! </li>
             <li><a class="text-white nav-link" href="javascript:document.getElementById('logoutForm').submit()">Wyloguj się</a></li>
@@ -17,6 +21,7 @@
             <span id="cartCount" class="badge text-bg-info" style="border:solid 1px black">0</span>
         </a>
     </div>
+   
 
 }
 else

@@ -12,8 +12,8 @@ using TeaShop.Models;
 namespace TeaShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230214175846_addTablesShoppingCart")]
-    partial class addTablesShoppingCart
+    [Migration("20230220180917_addData")]
+    partial class addData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -339,9 +339,6 @@ namespace TeaShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("BookId")
-                        .HasColumnType("int");
-
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
@@ -381,6 +378,26 @@ namespace TeaShop.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("orderStatuses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            StatusId = 1,
+                            StatusName = "Złożone"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            StatusId = 2,
+                            StatusName = "W trakcie"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            StatusId = 3,
+                            StatusName = "Anulowane"
+                        });
                 });
 
             modelBuilder.Entity("TeaShop.Models.Product", b =>
@@ -410,6 +427,9 @@ namespace TeaShop.Migrations
 
                     b.Property<float>("Price")
                         .HasColumnType("real");
+
+                    b.Property<string>("ProductImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("Weight")
                         .HasColumnType("real");
@@ -752,7 +772,7 @@ namespace TeaShop.Migrations
                         .IsRequired();
 
                     b.HasOne("TeaShop.Models.ShoppingCart", "ShoppingCart")
-                        .WithMany()
+                        .WithMany("CartDetail")
                         .HasForeignKey("ShoppingCartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -830,6 +850,11 @@ namespace TeaShop.Migrations
                 {
                     b.Navigation("ProductPhoto")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("TeaShop.Models.ShoppingCart", b =>
+                {
+                    b.Navigation("CartDetail");
                 });
 #pragma warning restore 612, 618
         }

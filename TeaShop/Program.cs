@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using TeaShop.Data;
 using TeaShop.Models;
 using TeaShop.Repository;
 
@@ -11,10 +12,14 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration["Data:DefaultConnection"]));
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+
 builder.Services.AddDirectoryBrowser();
 builder.Services.AddScoped<IProductService, ProductServiceEF>();
 builder.Services.AddTransient<ICartRepository, CartRepository>();
 builder.Services.AddTransient<IUserOrderRepo, UserOrderRepo>();
+builder.Services.AddTransient<IImageService, ImageService>();
+builder.Services.AddTransient<IImageService, ImageService>();
+builder.Services.AddTransient<IProductRepo, ProductRepo>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -46,8 +51,12 @@ app.UseRouting();
 app.UseAuthorization();
 app.UseAuthentication();
 
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+//DataSeeder.EnsurePopulated(app);
 
 app.Run();
+

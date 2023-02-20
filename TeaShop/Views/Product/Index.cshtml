@@ -57,6 +57,16 @@
                 <td>
                     <img src="@Url.Content("~/images/"+item.PhotoId+".jpg")" width="50" height="50"/>
                 </td>
+                <td>
+                    <a href="/Product/Edit/@Html.DisplayFor(modelItem => item.Id)" class="form-group">
+                        <input type="submit" value="Edytuj" class="btn btn-primary" />
+                    </a>
+                </td>
+                <td>
+                    <a href="/Product/Delete/@Html.DisplayFor(modelItem => item.Id)" class="form-group">
+                        <input type="submit" value="Usuń" class="btn btn-danger" />
+                    </a>
+                </td>
             </tr>
     }
     </tbody>
