@@ -206,8 +206,8 @@ namespace TeaShop.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<float>(type: "real", nullable: false),
-                    Weight = table.Column<float>(type: "real", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Weight = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Amount = table.Column<int>(type: "int", nullable: false),
                     PhotoId = table.Column<int>(type: "int", nullable: false),
                     ProductImage = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -275,7 +275,7 @@ namespace TeaShop.Migrations
                     ShoppingCartId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<double>(type: "float", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     OrderId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -309,7 +309,7 @@ namespace TeaShop.Migrations
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    UnitPrice = table.Column<double>(type: "float", nullable: false)
+                    UnitPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -354,18 +354,18 @@ namespace TeaShop.Migrations
                 columns: new[] { "Id", "Amount", "CategoryId", "Description", "Name", "PhotoId", "Price", "ProductImage", "Weight" },
                 values: new object[,]
                 {
-                    { 1, 30, 1, "Bancha należy do grona herbat zielonych. Pozyskiwana jest z krzewu Camellia sinensis czyli z tego samego, z którego pozyskuje się herbatę Sencha. Sencha powstaje z pierwszego zbioru delikatnych, młodych listków herbaty. Bancha zaś to tzw. herbata późnego zbioru (zbierana późnym latem, jesienią, a nawet i niekiedy zimą.", "Bancha", 1, 20.99f, null, 250f },
-                    { 2, 50, 1, "Mianem Gunpowder (czyli proch strzelniczy) jest nazywana herbata o listkach zwiniętych do postaci herbacianych kulek małej średnicy, twardych w dotyku, o szaro-zielonym odcieniu. China Gunpowder pochodzi z chińskiej prowincji Anhwei gdzie jest produkowany podczas wyjątkowo krótkich zbiorów. ", "China GunPowder", 2, 35.99f, null, 200f },
-                    { 3, 100, 1, "Herbaty pochodzenia japońskiego charakteryzują się wybitną jakością wynikającą z obowiązujących bardzo wysokich standardów prowadzenia upraw i obróbki zebranego materiału.Japońska Sencha to klasyka zielonych herbat pochodzących z Kraju Kwitnącej Wiśni. Właściwie przygotowany napar charakteryzuje wykwintny smak i aromat.", "Sencha", 3, 30.59f, null, 150f },
-                    { 4, 50, 2, "Herbata pochodzi z górskiej prowincji Yunnan położonej w Chinach przy granicy z Wietnamem, Birmą i Laosem, a rosnące w tym regionie krzewy herbaciane charakteryzują się szerokimi i mięsistymi liśćmi o połyskującej powierzchni. Golden Yunnan swoją nazwę zawdzięcza dużej ilości złotych \"tipsów\", dzięki którym uzyskiwany susz ma niespotykany złocisto-bursztynowy odcień.", "Golden Yunnan", 4, 20.59f, null, 100f },
-                    { 5, 150, 2, "Popularna kompozycja dwóch czarnych herbat gatunków Assam i Cejlon. Dedykowana jest do spożycia w godzinach porannych. Charakteryzuje się mocnym i wyrazistym smakiem i brązowo-bursztynową barwą. ", "English Breakfast", 5, 10.49f, null, 200f },
-                    { 6, 200, 2, "Ceylon High Grown OP (Orange Pekoe) to propozycja herbaty czarnej o długich, spiczastych liściach, sporadycznie zawierającej złotawe tipsy Napar charakteryzuje się delikatnym aromatem, orzeźwiającym smakiem oraz czerwono- złotą barwą.", "Ceylon High Grown OP", 6, 25.99f, null, 250f },
-                    { 7, 220, 3, "Wspaniale fantazyjne połączenie owoców: jabłka, papai, owocu czarnego bzu, maliny oraz truskawki w towarzystwie hibiskusa, delikatnych płatków słonecznika i aromatycznego bławatka. Z każdym kolejnym łykiem przenosi nas w cudowny klimat egzotyki. Wyśmienita do podawania jako słodki dodatek podczas spotkań z rodziną czy przyjaciółmi.", "Bora Bora", 7, 25.99f, null, 200f },
-                    { 8, 300, 3, "Kompozycja owocowa, w której skład wchodzi: jabłko, skórka dzikiej róży, skórka pomarańczy, hibiskus, malina i bławatek.", "Owocowe Love", 8, 15.99f, null, 150f },
-                    { 9, 150, 3, "Wybierz się na spacer uliczkami miasta miłości. W jego zakamarkach znajdziesz kwiaty intensywnego hibiskusa i delikatnej róży, skosztujesz owoców truskawki, żurawiny i wiśni, a także natkniesz się na romantyczne cukrowe serduszka, które osłodzą przechadzkę.", "Paris Paris", 9, 35.99f, null, 150f },
-                    { 10, 50, 4, "Polecamy jako słodki dodatek do herbaty. Miód z lawnendą", "Miodowe Lawendowe", 10, 15.99f, null, 50f },
-                    { 11, 50, 4, "Polecamy jako słodki dodatek do herbaty. Miód z cynamonem", "Miodowy Cynamon", 11, 15.99f, null, 50f },
-                    { 12, 50, 4, "Polecamy jako słodki dodatek do herbaty. Miód z migdałami", "Miód z migdałami", 12, 17.99f, null, 50f }
+                    { 1, 30, 1, "Bancha należy do grona herbat zielonych. Pozyskiwana jest z krzewu Camellia sinensis czyli z tego samego, z którego pozyskuje się herbatę Sencha. Sencha powstaje z pierwszego zbioru delikatnych, młodych listków herbaty. Bancha zaś to tzw. herbata późnego zbioru (zbierana późnym latem, jesienią, a nawet i niekiedy zimą.", "Bancha", 1, 20m, null, 250m },
+                    { 2, 50, 1, "Mianem Gunpowder (czyli proch strzelniczy) jest nazywana herbata o listkach zwiniętych do postaci herbacianych kulek małej średnicy, twardych w dotyku, o szaro-zielonym odcieniu. China Gunpowder pochodzi z chińskiej prowincji Anhwei gdzie jest produkowany podczas wyjątkowo krótkich zbiorów. ", "China GunPowder", 2, 35m, null, 200m },
+                    { 3, 100, 1, "Herbaty pochodzenia japońskiego charakteryzują się wybitną jakością wynikającą z obowiązujących bardzo wysokich standardów prowadzenia upraw i obróbki zebranego materiału.Japońska Sencha to klasyka zielonych herbat pochodzących z Kraju Kwitnącej Wiśni. Właściwie przygotowany napar charakteryzuje wykwintny smak i aromat.", "Sencha", 3, 30m, null, 150m },
+                    { 4, 50, 2, "Herbata pochodzi z górskiej prowincji Yunnan położonej w Chinach przy granicy z Wietnamem, Birmą i Laosem, a rosnące w tym regionie krzewy herbaciane charakteryzują się szerokimi i mięsistymi liśćmi o połyskującej powierzchni. Golden Yunnan swoją nazwę zawdzięcza dużej ilości złotych \"tipsów\", dzięki którym uzyskiwany susz ma niespotykany złocisto-bursztynowy odcień.", "Golden Yunnan", 4, 20m, null, 100m },
+                    { 5, 150, 2, "Popularna kompozycja dwóch czarnych herbat gatunków Assam i Cejlon. Dedykowana jest do spożycia w godzinach porannych. Charakteryzuje się mocnym i wyrazistym smakiem i brązowo-bursztynową barwą. ", "English Breakfast", 5, 10m, null, 200m },
+                    { 6, 200, 2, "Ceylon High Grown OP (Orange Pekoe) to propozycja herbaty czarnej o długich, spiczastych liściach, sporadycznie zawierającej złotawe tipsy Napar charakteryzuje się delikatnym aromatem, orzeźwiającym smakiem oraz czerwono- złotą barwą.", "Ceylon High Grown OP", 6, 25m, null, 250m },
+                    { 7, 220, 3, "Wspaniale fantazyjne połączenie owoców: jabłka, papai, owocu czarnego bzu, maliny oraz truskawki w towarzystwie hibiskusa, delikatnych płatków słonecznika i aromatycznego bławatka. Z każdym kolejnym łykiem przenosi nas w cudowny klimat egzotyki. Wyśmienita do podawania jako słodki dodatek podczas spotkań z rodziną czy przyjaciółmi.", "Bora Bora", 7, 25m, null, 200m },
+                    { 8, 300, 3, "Kompozycja owocowa, w której skład wchodzi: jabłko, skórka dzikiej róży, skórka pomarańczy, hibiskus, malina i bławatek.", "Owocowe Love", 8, 15m, null, 150m },
+                    { 9, 150, 3, "Wybierz się na spacer uliczkami miasta miłości. W jego zakamarkach znajdziesz kwiaty intensywnego hibiskusa i delikatnej róży, skosztujesz owoców truskawki, żurawiny i wiśni, a także natkniesz się na romantyczne cukrowe serduszka, które osłodzą przechadzkę.", "Paris Paris", 9, 35m, null, 150m },
+                    { 10, 50, 4, "Polecamy jako słodki dodatek do herbaty. Miód z lawnendą", "Miodowe Lawendowe", 10, 15m, null, 50m },
+                    { 11, 50, 4, "Polecamy jako słodki dodatek do herbaty. Miód z cynamonem", "Miodowy Cynamon", 11, 15m, null, 50m },
+                    { 12, 50, 4, "Polecamy jako słodki dodatek do herbaty. Miód z migdałami", "Miód z migdałami", 12, 17m, null, 50m }
                 });
 
             migrationBuilder.InsertData(

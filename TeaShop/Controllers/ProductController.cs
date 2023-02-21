@@ -12,7 +12,7 @@ namespace TeaShop.Controllers
         private readonly IProductRepo _productRepo;
         private readonly ProductServiceEF _productservice;
 
-        public ProductController (AppDbContext context,IProductService productService, IImageService imageService, IProductRepo productRepo)
+        public ProductController(AppDbContext context, IProductService productService, IImageService imageService, IProductRepo productRepo)
         {
             _productService = productService;
             _imageService = imageService;
@@ -20,7 +20,7 @@ namespace TeaShop.Controllers
         }
 
         public IActionResult Index()
-        
+
         {
             return View(_productService.FindAll());
         }
@@ -38,7 +38,7 @@ namespace TeaShop.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Product model)
+        public async Task<IActionResult> Create([Bind("Name,CategoryId,Description,Price,Weight,ProductImage,Amount")] Product model)
         {
             var status = 1;
             var message = "";

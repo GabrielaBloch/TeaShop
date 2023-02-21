@@ -239,8 +239,8 @@ namespace TeaShop.Migrations
                     b.Property<int?>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -346,8 +346,8 @@ namespace TeaShop.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<double>("UnitPrice")
-                        .HasColumnType("float");
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -423,14 +423,14 @@ namespace TeaShop.Migrations
                     b.Property<int>("PhotoId")
                         .HasColumnType("int");
 
-                    b.Property<float>("Price")
-                        .HasColumnType("real");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("ProductImage")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("Weight")
-                        .HasColumnType("real");
+                    b.Property<decimal>("Weight")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -447,8 +447,8 @@ namespace TeaShop.Migrations
                             Description = "Bancha należy do grona herbat zielonych. Pozyskiwana jest z krzewu Camellia sinensis czyli z tego samego, z którego pozyskuje się herbatę Sencha. Sencha powstaje z pierwszego zbioru delikatnych, młodych listków herbaty. Bancha zaś to tzw. herbata późnego zbioru (zbierana późnym latem, jesienią, a nawet i niekiedy zimą.",
                             Name = "Bancha",
                             PhotoId = 1,
-                            Price = 20.99f,
-                            Weight = 250f
+                            Price = 20m,
+                            Weight = 250m
                         },
                         new
                         {
@@ -458,8 +458,8 @@ namespace TeaShop.Migrations
                             Description = "Mianem Gunpowder (czyli proch strzelniczy) jest nazywana herbata o listkach zwiniętych do postaci herbacianych kulek małej średnicy, twardych w dotyku, o szaro-zielonym odcieniu. China Gunpowder pochodzi z chińskiej prowincji Anhwei gdzie jest produkowany podczas wyjątkowo krótkich zbiorów. ",
                             Name = "China GunPowder",
                             PhotoId = 2,
-                            Price = 35.99f,
-                            Weight = 200f
+                            Price = 35m,
+                            Weight = 200m
                         },
                         new
                         {
@@ -469,8 +469,8 @@ namespace TeaShop.Migrations
                             Description = "Herbaty pochodzenia japońskiego charakteryzują się wybitną jakością wynikającą z obowiązujących bardzo wysokich standardów prowadzenia upraw i obróbki zebranego materiału.Japońska Sencha to klasyka zielonych herbat pochodzących z Kraju Kwitnącej Wiśni. Właściwie przygotowany napar charakteryzuje wykwintny smak i aromat.",
                             Name = "Sencha",
                             PhotoId = 3,
-                            Price = 30.59f,
-                            Weight = 150f
+                            Price = 30m,
+                            Weight = 150m
                         },
                         new
                         {
@@ -480,8 +480,8 @@ namespace TeaShop.Migrations
                             Description = "Herbata pochodzi z górskiej prowincji Yunnan położonej w Chinach przy granicy z Wietnamem, Birmą i Laosem, a rosnące w tym regionie krzewy herbaciane charakteryzują się szerokimi i mięsistymi liśćmi o połyskującej powierzchni. Golden Yunnan swoją nazwę zawdzięcza dużej ilości złotych \"tipsów\", dzięki którym uzyskiwany susz ma niespotykany złocisto-bursztynowy odcień.",
                             Name = "Golden Yunnan",
                             PhotoId = 4,
-                            Price = 20.59f,
-                            Weight = 100f
+                            Price = 20m,
+                            Weight = 100m
                         },
                         new
                         {
@@ -491,8 +491,8 @@ namespace TeaShop.Migrations
                             Description = "Popularna kompozycja dwóch czarnych herbat gatunków Assam i Cejlon. Dedykowana jest do spożycia w godzinach porannych. Charakteryzuje się mocnym i wyrazistym smakiem i brązowo-bursztynową barwą. ",
                             Name = "English Breakfast",
                             PhotoId = 5,
-                            Price = 10.49f,
-                            Weight = 200f
+                            Price = 10m,
+                            Weight = 200m
                         },
                         new
                         {
@@ -502,8 +502,8 @@ namespace TeaShop.Migrations
                             Description = "Ceylon High Grown OP (Orange Pekoe) to propozycja herbaty czarnej o długich, spiczastych liściach, sporadycznie zawierającej złotawe tipsy Napar charakteryzuje się delikatnym aromatem, orzeźwiającym smakiem oraz czerwono- złotą barwą.",
                             Name = "Ceylon High Grown OP",
                             PhotoId = 6,
-                            Price = 25.99f,
-                            Weight = 250f
+                            Price = 25m,
+                            Weight = 250m
                         },
                         new
                         {
@@ -513,8 +513,8 @@ namespace TeaShop.Migrations
                             Description = "Wspaniale fantazyjne połączenie owoców: jabłka, papai, owocu czarnego bzu, maliny oraz truskawki w towarzystwie hibiskusa, delikatnych płatków słonecznika i aromatycznego bławatka. Z każdym kolejnym łykiem przenosi nas w cudowny klimat egzotyki. Wyśmienita do podawania jako słodki dodatek podczas spotkań z rodziną czy przyjaciółmi.",
                             Name = "Bora Bora",
                             PhotoId = 7,
-                            Price = 25.99f,
-                            Weight = 200f
+                            Price = 25m,
+                            Weight = 200m
                         },
                         new
                         {
@@ -524,8 +524,8 @@ namespace TeaShop.Migrations
                             Description = "Kompozycja owocowa, w której skład wchodzi: jabłko, skórka dzikiej róży, skórka pomarańczy, hibiskus, malina i bławatek.",
                             Name = "Owocowe Love",
                             PhotoId = 8,
-                            Price = 15.99f,
-                            Weight = 150f
+                            Price = 15m,
+                            Weight = 150m
                         },
                         new
                         {
@@ -535,8 +535,8 @@ namespace TeaShop.Migrations
                             Description = "Wybierz się na spacer uliczkami miasta miłości. W jego zakamarkach znajdziesz kwiaty intensywnego hibiskusa i delikatnej róży, skosztujesz owoców truskawki, żurawiny i wiśni, a także natkniesz się na romantyczne cukrowe serduszka, które osłodzą przechadzkę.",
                             Name = "Paris Paris",
                             PhotoId = 9,
-                            Price = 35.99f,
-                            Weight = 150f
+                            Price = 35m,
+                            Weight = 150m
                         },
                         new
                         {
@@ -546,8 +546,8 @@ namespace TeaShop.Migrations
                             Description = "Polecamy jako słodki dodatek do herbaty. Miód z lawnendą",
                             Name = "Miodowe Lawendowe",
                             PhotoId = 10,
-                            Price = 15.99f,
-                            Weight = 50f
+                            Price = 15m,
+                            Weight = 50m
                         },
                         new
                         {
@@ -557,8 +557,8 @@ namespace TeaShop.Migrations
                             Description = "Polecamy jako słodki dodatek do herbaty. Miód z cynamonem",
                             Name = "Miodowy Cynamon",
                             PhotoId = 11,
-                            Price = 15.99f,
-                            Weight = 50f
+                            Price = 15m,
+                            Weight = 50m
                         },
                         new
                         {
@@ -568,8 +568,8 @@ namespace TeaShop.Migrations
                             Description = "Polecamy jako słodki dodatek do herbaty. Miód z migdałami",
                             Name = "Miód z migdałami",
                             PhotoId = 12,
-                            Price = 17.99f,
-                            Weight = 50f
+                            Price = 17m,
+                            Weight = 50m
                         });
                 });
 

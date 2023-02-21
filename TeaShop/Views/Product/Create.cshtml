@@ -1,4 +1,6 @@
-﻿@model TeaShop.Models.Product
+﻿
+
+@model TeaShop.Models.Product
 
 @{
     ViewData["Title"] = "Create";
@@ -38,7 +40,7 @@
                 <span asp-validation-for="Weight" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProductImage" class="w-40">Image</label>
+                <label asp-for="ImageFile" class="w-40">Image</label>
                 <input type="file" asp-for="ImageFile">
             </div>
             <div class="form-group">

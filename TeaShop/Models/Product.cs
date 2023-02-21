@@ -20,12 +20,14 @@ namespace TeaShop.Models
         [Required]
         [Display(Name = "Opis")]
         public string Description { get; set; }
+        [DisplayFormat(DataFormatString = "{0:N}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Currency)]
         [Required]
         [Display(Name = "Cena")]
-        public float Price { get; set; }
+        public decimal Price { get; set; }
         [Required]
         [Display(Name = "Waga")]
-        public float Weight { get; set; }
+        public decimal Weight { get; set; }
         [Required]
         [Display(Name = "Na stanie")]
         public int Amount { get; set; }

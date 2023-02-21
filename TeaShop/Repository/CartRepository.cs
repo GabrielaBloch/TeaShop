@@ -125,17 +125,15 @@ namespace TeaShop.Repository
 
 
         }
-        public async Task<int> GetCartItemCount(string userId="")
+        public async Task<int> GetCartItemCount(string userId)
         {
-            if (!string.IsNullOrEmpty(userId))
-            {
-                userId = GetUserId();
-            }
+            userId = GetUserId();
             var data = await (from cart in _context.ShoppingCarts
                               join cartDetail in _context.CartDetails
                               on cart.Id equals cartDetail.ShoppingCartId
+                              where cart.UserId == userId
                               select new { cartDetail.Id }
-                              ).ToListAsync();
+                               ).ToListAsync();
             return data.Count;
         }
 
